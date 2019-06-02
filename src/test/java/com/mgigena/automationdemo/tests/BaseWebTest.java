@@ -13,7 +13,7 @@ public class BaseWebTest extends BaseTest {
   @Parameters({"runEnv", "runDriver", "runVersion", "runOs"})
   @BeforeMethod(alwaysRun = true)
   public void setUp(@Optional("LOCAL") String runEnv, @Optional("chrome") String runDriver,
-      @Optional("54.0") String runVersion, @Optional("OS X 10.10") String runOs,
+      @Optional("74.0") String runVersion, @Optional("macOS 10.14") String runOs,
       Method testMethod) {
     setEnvironment(runEnv);
     setDriver(DriverFactory.getDriver(getEnvironment(), runDriver, runVersion, runOs, testMethod));

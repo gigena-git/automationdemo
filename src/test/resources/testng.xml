@@ -6,11 +6,11 @@
       <exclude name="broken"/>
     </run>
   </groups>
-  <test name="Run tests with chrome on OS X">
+  <test name="Run tests with chrome on macOS">
     <parameter name="runEnv" value="REMOTE"/>
     <parameter name="runDriver" value="chrome"/>
-    <parameter name="runVersion" value="66.0"/>
-    <parameter name="runOs" value="OS X 10.12"/>
+    <parameter name="runVersion" value="74.0"/>
+    <parameter name="runOs" value="macOS 10.14"/>
     <packages>
       <package name="com.mgigena.automationdemo.tests.desktop"/>
     </packages>
@@ -18,7 +18,7 @@
   <test name="Run tests with firefox on Windows 10">
     <parameter name="runEnv" value="REMOTE"/>
     <parameter name="runDriver" value="firefox"/>
-    <parameter name="runVersion" value="58.0"/>
+    <parameter name="runVersion" value="67.0"/>
     <parameter name="runOs" value="Windows 10"/>
     <packages>
       <package name="com.mgigena.automationdemo.tests.desktop"/>
@@ -26,10 +26,10 @@
   </test>
   <test name="Run mobile tests remotely">
     <parameter name="runEnv" value="REMOTE"/>
-    <parameter name="appiumVersion" value="1.7.2"/>
+    <parameter name="appiumVersion" value="1.9.1"/>
     <parameter name="platformName" value="Android"/>
-    <parameter name="platformVersion" value="7.1"/>
-    <parameter name="deviceName" value="Samsung Galaxy S8 Plus GoogleAPI Emulator"/>
+    <parameter name="platformVersion" value="8.1"/>
+    <parameter name="deviceName" value="Samsung Galaxy S9 Plus HD GoogleAPI Emulator"/>
     <parameter name="browserName" value="Chrome"/>
     <packages>
       <package name="com.mgigena.automationdemo.tests.mobile"/>
