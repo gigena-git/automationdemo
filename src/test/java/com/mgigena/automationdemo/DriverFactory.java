@@ -14,17 +14,14 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.mgigena.automationdemo.tests.BaseTest;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.EdgeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public final class DriverFactory {
 
-  private static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
+  private static final Logger LOGGER = LogManager.getLogger(DriverFactory.class);
 
   private DriverFactory() {
   }
@@ -37,17 +34,17 @@ public final class DriverFactory {
       switch (runDriver) {
         case "MicrosoftEdge":
           LOGGER.info("Creating Edge Driver");
-          EdgeDriverManager.getInstance().setup();
+          WebDriverManager.edgedriver().setup();
           driver = new EdgeDriver();
           break;
         case "chrome":
           LOGGER.info("Creating Chrome Driver");
-          ChromeDriverManager.getInstance().setup();
+          WebDriverManager.chromedriver().setup();
           driver = new ChromeDriver();
           break;
         default:
           LOGGER.info("Creating Firefox Driver");
-          FirefoxDriverManager.getInstance().setup();
+          WebDriverManager.firefoxdriver().setup();
           driver = new FirefoxDriver();
       }
     } else if ("REMOTE".equals(environment)) {

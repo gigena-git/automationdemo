@@ -81,8 +81,7 @@ public class BaseTest {
   }
 
   private void printSessionId() {
-    String message = String
-        .format("SauceOnDemandSessionID=%1$s job-name=%2$s", sessionId, CoreConfig.getJobName());
+    String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s", sessionId, CoreConfig.getJobName());
     System.out.println(message);
   }
 }

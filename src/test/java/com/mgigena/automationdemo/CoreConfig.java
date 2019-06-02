@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.saucelabs.saucerest.SauceREST;
+import com.saucelabs.common.Utils;
 
 public final class CoreConfig {
 
@@ -26,28 +27,31 @@ public final class CoreConfig {
   }
 
   public static String getSauceUserName() {
-    return System.getenv("SAUCE_USERNAME");
+    return Utils.readPropertyOrEnv("SAUCE_USERNAME","");
   }
 
   public static String getSauceAccessKey() {
-    return System.getenv("SAUCE_ACCESS_KEY");
+    return Utils.readPropertyOrEnv("SAUCE_ACCESS_KEY","");
   }
 
   public static SauceREST getSauceRest() {
     return new SauceREST(getSauceUserName(), getSauceAccessKey());
   }
 
+  public static String getJobName() {
+    return Utils.readPropertyOrEnv("JOB_NAME","");
+  }
+
+  public static String getBuildNumber() {
+    return Utils.readPropertyOrEnv("BUILD_NUMBER","");
+  }
   public static String getRemoteURL() {
     String url = "https://%s:%s@ondemand.saucelabs.com:443/wd/hub";
     return String.format(url, getSauceUserName(), getSauceAccessKey());
   }
 
   public static String getBuild() {
-    return System.getenv("JOB_NAME") + "__" + System.getenv("BUILD_NUMBER");
-  }
-
-  public static String getJobName() {
-    return System.getenv("JOB_NAME");
+    return getJobName() + "__" + getBuildNumber();
   }
 
   public static URL getLocalAppiumUrl() {
