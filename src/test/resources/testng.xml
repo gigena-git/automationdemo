@@ -11,18 +11,18 @@
     <parameter name="runDriver" value="chrome"/>
     <parameter name="runVersion" value="74.0"/>
     <parameter name="runOs" value="macOS 10.14"/>
-    <packages>
-      <package name="com.mgigena.automationdemo.tests.desktop"/>
-    </packages>
+    <classes>
+      <class name="com.mgigena.automationdemo.tests.desktop.DesktopFactoryTest"/>
+    </classes>
   </test>
   <test name="Run tests with firefox on Windows 10">
     <parameter name="runEnv" value="REMOTE"/>
     <parameter name="runDriver" value="firefox"/>
     <parameter name="runVersion" value="67.0"/>
     <parameter name="runOs" value="Windows 10"/>
-    <packages>
-      <package name="com.mgigena.automationdemo.tests.desktop"/>
-    </packages>
+    <classes>
+      <class name="com.mgigena.automationdemo.tests.desktop.DesktopFactoryTest"/>
+    </classes>
   </test>
   <test name="Run mobile tests remotely">
     <parameter name="runEnv" value="REMOTE"/>
