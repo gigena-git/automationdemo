@@ -30,4 +30,9 @@ public class DesktopFactoryTest {
   public Object[] randomNumberTests () {
     return new Object[] {new RandomNumberTest()};
   }
+
+  @Factory
+  public Object[] checkboxesTests () {
+    return new Object[] {new CheckboxesTest()};
+  }
 }
