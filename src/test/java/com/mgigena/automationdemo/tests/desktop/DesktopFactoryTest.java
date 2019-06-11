@@ -25,4 +25,9 @@ public class DesktopFactoryTest {
   public Object[] chalengingDOMTest (int rowNum, int colNum, String tableText) {
     return new Object[] {new ChallengingDOMTest(rowNum, colNum, tableText)};
   }
+
+  @Factory
+  public Object[] randomNumberTests () {
+    return new Object[] {new RandomNumberTest()};
+  }
 }
