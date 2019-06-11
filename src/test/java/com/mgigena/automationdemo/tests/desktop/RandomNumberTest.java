@@ -16,6 +16,6 @@ public class RandomNumberTest extends BaseWebTest {
   public void detectRandomNumber() throws IOException, TesseractException {
     ChallengingDOMPage.goTo(getDriver());
     ChallengingDOMPage domPage = PageFactory.initElements(getDriver(), ChallengingDOMPage.class);
-    Assert.assertTrue(domPage.randomNumberGenerated(), "The text inside the canvas is not a number!!");
+    Assert.assertTrue(domPage.isRandomNumberGenerated(), "The text inside the canvas is not a number!!");
   }
 }

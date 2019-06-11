@@ -40,23 +40,23 @@ public class ChallengingDOMPage extends BasicPage{
     return cell.getText();
   }
 
-  public boolean randomNumberGenerated() throws IOException, TesseractException {
+  public boolean isRandomNumberGenerated() throws IOException, TesseractException {
     getRandomNumberCanvas();
     String value = retrieveRandomNumber();
     return value.matches("Answer: \\d{5}\\n");
   }
 
   private void getRandomNumberCanvas() throws IOException {
-    String canvas_base64 = (String) ((JavascriptExecutor)getDriver()).executeScript("return arguments[0].toDataURL('image/png').substring(21);", randomNumberText);
-    ByteArrayInputStream bis = new ByteArrayInputStream(Base64.getMimeDecoder().decode(canvas_base64.getBytes("UTF-8")));
+    String canvasBase64 = (String) ((JavascriptExecutor)getDriver()).executeScript("return arguments[0].toDataURL('image/png').substring(21);", randomNumberText);
+    ByteArrayInputStream bis = new ByteArrayInputStream(Base64.getMimeDecoder().decode(canvasBase64.getBytes("UTF-8")));
     BufferedImage canvasImage = ImageIO.read(bis);
     bis.close();
     ImageIO.write(canvasImage, "png", new File("target/canvas.png"));
   }
 
-    private String retrieveRandomNumber() throws TesseractException {
-      Tesseract tesseract = new Tesseract();
-      tesseract.setDatapath("C:/Tesseract/tessdata");
-      return tesseract.doOCR(new File("target/canvas.png"));
-    }
+  private String retrieveRandomNumber() throws TesseractException {
+    Tesseract tesseract = new Tesseract();
+    tesseract.setDatapath("C:/Tesseract/tessdata");
+    return tesseract.doOCR(new File("target/canvas.png"));
+  }
 }
