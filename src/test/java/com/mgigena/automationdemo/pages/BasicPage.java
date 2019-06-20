@@ -1,6 +1,10 @@
 package com.mgigena.automationdemo.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasicPage {
 
@@ -12,5 +16,12 @@ public class BasicPage {
 
   public WebDriver getDriver() {
     return driver;
+  }
+
+  protected void waitForPageToLoad(int seconds) {
+    WebDriverWait wait = new WebDriverWait(driver, seconds);
+    ExpectedCondition<Boolean> expectation = inputDriver -> "complete".equals(
+        ((JavascriptExecutor) inputDriver).executeScript("return document.readyState").toString());
+    wait.until(expectation);
   }
 }

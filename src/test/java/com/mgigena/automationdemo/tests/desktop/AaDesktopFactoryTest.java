@@ -7,6 +7,11 @@ import com.mgigena.automationdemo.data.ChallengingDOMData;
 public class AaDesktopFactoryTest {
 
   @Factory
+  public Object[] abTests () {
+    return new Object[] {new ABTest()};
+  }
+
+  @Factory
   public Object[] addRemoveTests () {
     return new Object[] {new AddRemoveElementTest()};
   }
