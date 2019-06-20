@@ -4,7 +4,7 @@ import org.testng.annotations.Factory;
 
 import com.mgigena.automationdemo.data.ChallengingDOMData;
 
-public class DesktopFactoryTest {
+public class AaDesktopFactoryTest {
 
   @Factory
   public Object[] addRemoveTests () {
@@ -22,17 +22,22 @@ public class DesktopFactoryTest {
   }
 
   @Factory(dataProvider = "domElements", dataProviderClass = ChallengingDOMData.class)
-  public Object[] chalengingDOMTest (int rowNum, int colNum, String tableText) {
-    return new Object[] {new ChallengingDOMTest(rowNum, colNum, tableText)};
+  public Object[] chalengingDOMLabelTests (int rowNum, int colNum, String tableText) {
+    return new Object[] {new ChallengingDOMLabelTest(rowNum, colNum, tableText)};
   }
 
   @Factory
-  public Object[] randomNumberTests () {
-    return new Object[] {new RandomNumberTest()};
+  public  Object[] challengingDOMNumberTests () {
+    return new Object[] {new ChallengingDOMNumberTest()};
   }
 
   @Factory
   public Object[] checkboxesTests () {
     return new Object[] {new CheckboxesTest()};
+  }
+
+  @Factory
+  public Object[] contextMenuTests () {
+    return new Object[] {new ContextMenuTest()};
   }
 }

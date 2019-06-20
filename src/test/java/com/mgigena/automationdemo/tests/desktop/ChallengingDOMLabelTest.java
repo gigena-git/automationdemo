@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 import com.mgigena.automationdemo.pages.ChallengingDOMPage;
 import com.mgigena.automationdemo.tests.BaseWebTest;
 
-public class ChallengingDOMTest extends BaseWebTest {
+public class ChallengingDOMLabelTest extends BaseWebTest {
 
   private final int rowNum;
   private final int colNum;
   private final String tableText;
 
-  public ChallengingDOMTest(int rowNum, int colNum, String tableText) {
+  public ChallengingDOMLabelTest(int rowNum, int colNum, String tableText) {
     this.rowNum = rowNum;
     this.colNum = colNum;
     this.tableText = tableText;
@@ -28,5 +28,4 @@ public class ChallengingDOMTest extends BaseWebTest {
     annotate("Asserting all table values are correct");
     Assert.assertEquals(domPage.textAt(rowNum,colNum),tableText + (rowNum - 1),"The contents of the cell are not the expected ones!");
   }
-
 }

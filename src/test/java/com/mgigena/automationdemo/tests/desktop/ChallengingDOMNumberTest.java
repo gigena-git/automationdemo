@@ -10,7 +10,7 @@ import com.mgigena.automationdemo.pages.ChallengingDOMPage;
 import com.mgigena.automationdemo.tests.BaseWebTest;
 import net.sourceforge.tess4j.TesseractException;
 
-public class RandomNumberTest extends BaseWebTest {
+public class ChallengingDOMNumberTest extends BaseWebTest {
 
   @Test
   public void detectRandomNumber() throws IOException, TesseractException {
