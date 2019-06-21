@@ -45,4 +45,9 @@ public class AaDesktopFactoryTest {
   public Object[] contextMenuTests () {
     return new Object[] {new ContextMenuTest()};
   }
+
+  @Factory
+  public Object[] digestAuthTests () {
+    return new Object[] {new DigestAuthTest()};
+  }
 }
