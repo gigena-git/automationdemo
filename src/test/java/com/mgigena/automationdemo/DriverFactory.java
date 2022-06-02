@@ -15,7 +15,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -62,11 +61,11 @@ public final class DriverFactory {
     return driver;
   }
 
-  public static AppiumDriver<MobileElement> getDevice(String environment, String appiumVersion,
+  public static AppiumDriver getDevice(String environment, String appiumVersion,
       String platformName, String platformVersion, String deviceName, String browserName,
       Method testMethod) {
     URL url;
-    AppiumDriver<MobileElement> driver = null;
+    AppiumDriver driver = null;
     DesiredCapabilities capabilities;
     if ("LOCAL".equals(environment)) {
       url = CoreConfig.getLocalAppiumUrl();
@@ -79,7 +78,7 @@ public final class DriverFactory {
         capabilities.setCapability("deviceName", localDevice);
         capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
 
-        driver = new AndroidDriver<>(url, capabilities);
+        driver = new AndroidDriver(url, capabilities);
       }
     } else if ("REMOTE".equals(environment)) {
       url = CoreConfig.getRemoteServerUrl();
@@ -93,7 +92,7 @@ public final class DriverFactory {
         capabilities.setCapability("build", CoreConfig.getBuild());
         capabilities.setCapability("name", testMethod.getName());
 
-        driver = new AndroidDriver<>(url, capabilities);
+        driver = new AndroidDriver(url, capabilities);
       }
     }
     return driver;
