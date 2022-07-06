@@ -1,6 +1,11 @@
 #Eclipse
 jdt.ls-java-project/
 .metadata/
+.classpath
+.factorypath
+.project
+.settings/
+test-output/
 
 #Target
 target/

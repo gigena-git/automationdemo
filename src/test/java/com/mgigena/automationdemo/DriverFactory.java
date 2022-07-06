@@ -16,6 +16,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public final class DriverFactory {
@@ -72,11 +73,15 @@ public final class DriverFactory {
       if ("Android".equals(platformName)) {
         String localDevice = CoreConfig.getProperty("device");
         String localVersion = CoreConfig.getProperty("platformversion");
-        capabilities = DesiredCapabilities.android();
-        capabilities.setCapability("platformName", platformName);
-        capabilities.setCapability("platformVersion", localVersion);
-        capabilities.setCapability("deviceName", localDevice);
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
+        capabilities = new DesiredCapabilities();
+        // capabilities.setCapability("platformName", platformName);
+        // capabilities.setCapability("platformVersion", localVersion);
+        // capabilities.setCapability("deviceName", localDevice);
+        // capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, localVersion);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, localDevice);
+        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 
         driver = new AndroidDriver(url, capabilities);
       }
