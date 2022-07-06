@@ -52,10 +52,6 @@ public final class DriverFactory {
       URL url = CoreConfig.getRemoteServerUrl();
       DesiredCapabilities capabilities = new DesiredCapabilities();
       capabilities.setCapability(CapabilityType.BROWSER_NAME, runDriver);
-      capabilities.setCapability(CapabilityType.VERSION, runVersion);
-      capabilities.setCapability("platform", runOs);
-      capabilities.setCapability("build", CoreConfig.getBuild());
-      capabilities.setCapability("name", testMethod.getName());
 
       driver = new RemoteWebDriver(url, capabilities);
     }
@@ -74,13 +70,8 @@ public final class DriverFactory {
         String localDevice = CoreConfig.getProperty("device");
         String localVersion = CoreConfig.getProperty("platformversion");
         capabilities = new DesiredCapabilities();
-        // capabilities.setCapability("platformName", platformName);
-        // capabilities.setCapability("platformVersion", localVersion);
-        // capabilities.setCapability("deviceName", localDevice);
-        // capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, localVersion);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, localDevice);
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 
         driver = new AndroidDriver(url, capabilities);
@@ -89,13 +80,9 @@ public final class DriverFactory {
       url = CoreConfig.getRemoteServerUrl();
       if ("Android".equals(platformName)) {
         capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", platformName);
-        capabilities.setCapability("appiumVersion", appiumVersion);
-        capabilities.setCapability("platformVersion", platformVersion);
-        capabilities.setCapability("deviceName", deviceName);
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, browserName);
-        capabilities.setCapability("build", CoreConfig.getBuild());
-        capabilities.setCapability("name", testMethod.getName());
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
+        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
 
         driver = new AndroidDriver(url, capabilities);
       }
