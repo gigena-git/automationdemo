@@ -1,11 +1,10 @@
 package com.mgigena.automationdemo.tests.desktop;
 
+import com.mgigena.automationdemo.pages.ChallengingDOMPage;
+import com.mgigena.automationdemo.tests.BaseWebTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.mgigena.automationdemo.pages.ChallengingDOMPage;
-import com.mgigena.automationdemo.tests.BaseWebTest;
 
 public class ChallengingDOMLabelTest extends BaseWebTest {
 
@@ -26,6 +25,9 @@ public class ChallengingDOMLabelTest extends BaseWebTest {
     ChallengingDOMPage domPage = PageFactory.initElements(getDriver(), ChallengingDOMPage.class);
 
     annotate("Asserting all table values are correct");
-    Assert.assertEquals(domPage.textAt(rowNum,colNum),tableText + (rowNum - 1),"The contents of the cell are not the expected ones!");
+    Assert.assertEquals(
+        domPage.textAt(rowNum, colNum),
+        tableText + (rowNum - 1),
+        "The contents of the cell are not the expected ones!");
   }
 }

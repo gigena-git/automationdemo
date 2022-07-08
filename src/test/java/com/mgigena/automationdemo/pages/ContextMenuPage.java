@@ -23,7 +23,7 @@ public class ContextMenuPage extends BasicPage {
     return message;
   }
 
-  public static void goTo(WebDriver driver){
+  public static void goTo(WebDriver driver) {
     driver.navigate().to(PATH);
   }
 

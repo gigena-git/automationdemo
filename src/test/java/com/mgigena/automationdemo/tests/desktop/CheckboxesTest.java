@@ -1,11 +1,10 @@
 package com.mgigena.automationdemo.tests.desktop;
 
+import com.mgigena.automationdemo.pages.CheckboxesPage;
+import com.mgigena.automationdemo.tests.BaseWebTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.mgigena.automationdemo.pages.CheckboxesPage;
-import com.mgigena.automationdemo.tests.BaseWebTest;
 
 public class CheckboxesTest extends BaseWebTest {
 
@@ -13,7 +12,7 @@ public class CheckboxesTest extends BaseWebTest {
   public void switchCheckboxes() {
     annotate("Going to Checkboxes page");
     CheckboxesPage.goTo(getDriver());
-    CheckboxesPage page = PageFactory.initElements(getDriver(),CheckboxesPage.class);
+    CheckboxesPage page = PageFactory.initElements(getDriver(), CheckboxesPage.class);
 
     annotate("Clicking checkboxes");
     page.checkFirstCheckbox();

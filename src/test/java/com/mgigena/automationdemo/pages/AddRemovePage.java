@@ -22,13 +22,15 @@ public class AddRemovePage extends BasicPage {
   }
 
   public void addElement(int numberOfElements) {
-    for(int i = 0; i <numberOfElements; i++ ){
+    for (int i = 0; i < numberOfElements; i++) {
       addButton.click();
     }
   }
 
   public void removeElementNo(int elementNumber) {
-    getDriver().findElement(By.cssSelector("#elements > button:nth-child(" + elementNumber + ")")).click();
+    getDriver()
+        .findElement(By.cssSelector("#elements > button:nth-child(" + elementNumber + ")"))
+        .click();
   }
 
   public int countElements() {

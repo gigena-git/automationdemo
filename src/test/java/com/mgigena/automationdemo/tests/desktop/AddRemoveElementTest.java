@@ -1,11 +1,10 @@
 package com.mgigena.automationdemo.tests.desktop;
 
+import com.mgigena.automationdemo.pages.AddRemovePage;
+import com.mgigena.automationdemo.tests.BaseWebTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.mgigena.automationdemo.pages.AddRemovePage;
-import com.mgigena.automationdemo.tests.BaseWebTest;
 
 public class AddRemoveElementTest extends BaseWebTest {
 
@@ -21,6 +20,9 @@ public class AddRemoveElementTest extends BaseWebTest {
     addRemovePage.removeElementNo(3);
 
     annotate("Asserting there are 3 elements left");
-    Assert.assertEquals(addRemovePage.countElements(), 3, 3 + " elements were expected, but " + addRemovePage.countElements() + " were found!");
+    Assert.assertEquals(
+        addRemovePage.countElements(),
+        3,
+        3 + " elements were expected, but " + addRemovePage.countElements() + " were found!");
   }
 }

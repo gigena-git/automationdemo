@@ -1,15 +1,13 @@
 package com.mgigena.automationdemo;
 
+import com.saucelabs.common.Utils;
+import com.saucelabs.saucerest.SauceREST;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.saucelabs.saucerest.SauceREST;
-import com.saucelabs.common.Utils;
 
 public final class CoreConfig {
 
@@ -27,11 +25,11 @@ public final class CoreConfig {
   }
 
   public static String getSauceUserName() {
-    return Utils.readPropertyOrEnv("SAUCE_USERNAME","");
+    return Utils.readPropertyOrEnv("SAUCE_USERNAME", "");
   }
 
   public static String getSauceAccessKey() {
-    return Utils.readPropertyOrEnv("SAUCE_ACCESS_KEY","");
+    return Utils.readPropertyOrEnv("SAUCE_ACCESS_KEY", "");
   }
 
   public static SauceREST getSauceRest() {
@@ -39,12 +37,13 @@ public final class CoreConfig {
   }
 
   public static String getJobName() {
-    return Utils.readPropertyOrEnv("JOB_NAME","");
+    return Utils.readPropertyOrEnv("JOB_NAME", "");
   }
 
   public static String getBuildNumber() {
-    return Utils.readPropertyOrEnv("BUILD_NUMBER","");
+    return Utils.readPropertyOrEnv("BUILD_NUMBER", "");
   }
+
   public static String getRemoteURL() {
     String url = "https://%s:%s@ondemand.saucelabs.com:443/wd/hub";
     return String.format(url, getSauceUserName(), getSauceAccessKey());
@@ -74,6 +73,5 @@ public final class CoreConfig {
     return remoteUrl;
   }
 
-  private CoreConfig() {
-  }
+  private CoreConfig() {}
 }

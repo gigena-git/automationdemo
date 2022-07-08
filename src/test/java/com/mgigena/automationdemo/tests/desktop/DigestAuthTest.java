@@ -1,11 +1,10 @@
 package com.mgigena.automationdemo.tests.desktop;
 
+import com.mgigena.automationdemo.pages.DigestAuthPage;
+import com.mgigena.automationdemo.tests.BaseWebTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.mgigena.automationdemo.pages.DigestAuthPage;
-import com.mgigena.automationdemo.tests.BaseWebTest;
 
 public class DigestAuthTest extends BaseWebTest {
 
@@ -14,6 +13,9 @@ public class DigestAuthTest extends BaseWebTest {
     DigestAuthPage.goTo(getDriver());
     DigestAuthPage page = PageFactory.initElements(getDriver(), DigestAuthPage.class);
 
-    Assert.assertEquals(page.getParagraphText(), "Congratulations! You must have the proper credentials.", "Paragraph is not right!");
+    Assert.assertEquals(
+        page.getParagraphText(),
+        "Congratulations! You must have the proper credentials.",
+        "Paragraph is not right!");
   }
 }

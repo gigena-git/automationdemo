@@ -1,15 +1,14 @@
 package com.mgigena.automationdemo.tests.desktop;
 
+import com.mgigena.automationdemo.pages.BrokenImagesPage;
+import com.mgigena.automationdemo.tests.BaseWebTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.mgigena.automationdemo.pages.BrokenImagesPage;
-import com.mgigena.automationdemo.tests.BaseWebTest;
-
 public class BrokenImagesTest extends BaseWebTest {
 
-  @Test(groups ="broken")
+  @Test(groups = "broken")
   public void brokenImagesHappyPath() {
     annotate("Going to broken images page.");
     BrokenImagesPage.goTo(getDriver());
@@ -20,7 +19,7 @@ public class BrokenImagesTest extends BaseWebTest {
   }
 
   @Test
-  public void saneImage(){
+  public void saneImage() {
     annotate("Going to broken images page.");
     BrokenImagesPage.goTo(getDriver());
     BrokenImagesPage brokenPage = PageFactory.initElements(getDriver(), BrokenImagesPage.class);

@@ -11,6 +11,7 @@ public class ABPage extends BasicPage {
 
   @FindBy(how = How.CSS, using = "#content>div>h3")
   private WebElement header;
+
   @FindBy(how = How.CSS, using = "#content>div>p")
   private WebElement paragraph;
 

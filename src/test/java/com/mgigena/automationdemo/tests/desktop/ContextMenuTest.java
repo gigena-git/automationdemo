@@ -1,11 +1,10 @@
 package com.mgigena.automationdemo.tests.desktop;
 
+import com.mgigena.automationdemo.pages.ContextMenuPage;
+import com.mgigena.automationdemo.tests.BaseWebTest;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.mgigena.automationdemo.pages.ContextMenuPage;
-import com.mgigena.automationdemo.tests.BaseWebTest;
 
 public class ContextMenuTest extends BaseWebTest {
 
@@ -19,6 +18,9 @@ public class ContextMenuTest extends BaseWebTest {
     page.rightClickHotSpot();
 
     annotate("Determining alert has the expected message");
-    Assert.assertEquals(page.getMessage(), "You selected a context menu", "The expected value and actual messages differ!");
+    Assert.assertEquals(
+        page.getMessage(),
+        "You selected a context menu",
+        "The expected value and actual messages differ!");
   }
 }

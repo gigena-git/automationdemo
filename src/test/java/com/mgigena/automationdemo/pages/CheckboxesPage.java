@@ -11,6 +11,7 @@ public class CheckboxesPage extends BasicPage {
 
   @FindBy(how = How.CSS, using = "#checkboxes > input[type=checkbox]:nth-child(1)")
   private WebElement checkBoxOne;
+
   @FindBy(how = How.CSS, using = "#checkboxes > input[type=checkbox]:nth-child(3)")
   private WebElement checkBoxTwo;
 
@@ -18,7 +19,7 @@ public class CheckboxesPage extends BasicPage {
     super(runDriver);
   }
 
-  public static void goTo(WebDriver driver){
+  public static void goTo(WebDriver driver) {
     driver.navigate().to(PATH);
   }
 

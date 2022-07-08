@@ -1,7 +1,6 @@
 package com.mgigena.automationdemo.pages;
 
 import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,16 +9,18 @@ import org.openqa.selenium.support.How;
 
 public class BrokenImagesPage extends BasicPage {
 
-  private static final String PATH = "http://the-internet.herokuapp.com/broken_images";
+  private static final String PATH = "https://the-internet.herokuapp.com/broken_images";
 
   @FindBy(how = How.TAG_NAME, using = "img")
   private List<WebElement> images;
+
   @FindBy(css = "#content > div > img:nth-child(4)")
   private WebElement saneImage;
 
-  private static final String SCRIPT = "return arguments[0].complete && "
-      + "typeof arguments[0].naturalWidth != \"undefined\" && "
-      + "arguments[0].naturalWidth > 0";
+  private static final String SCRIPT =
+      "return arguments[0].complete && "
+          + "typeof arguments[0].naturalWidth != \"undefined\" && "
+          + "arguments[0].naturalWidth > 0";
 
   public BrokenImagesPage(WebDriver runDriver) {
     super(runDriver);

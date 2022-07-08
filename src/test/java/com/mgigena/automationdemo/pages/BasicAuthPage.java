@@ -17,7 +17,7 @@ public class BasicAuthPage extends BasicPage {
   }
 
   public static void goTo(WebDriver driver) {
-    driver.navigate().to("http://admin:admin@" + PATH);
+    driver.navigate().to("https://admin:admin@" + PATH);
   }
 
   public boolean isHappyMessageDesplayed() {

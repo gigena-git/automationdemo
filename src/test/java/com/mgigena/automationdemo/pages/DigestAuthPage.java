@@ -17,7 +17,7 @@ public class DigestAuthPage extends BasicPage {
   }
 
   public static void goTo(WebDriver driver) {
-    driver.get("http://admin:admin@" + PATH);
+    driver.get("https://admin:admin@" + PATH);
   }
 
   public String getParagraphText() {
