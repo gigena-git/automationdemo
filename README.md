@@ -1,11 +1,12 @@
 # Automation Demo
 This is a small but efficient test framework designed to showcase my skills with the following technologies:
 
-* [Java 11](https://www.oracle.com/java/technologies/downloads/) I have not tested Java 17 yet.
+* [Java 17](https://www.oracle.com/java/technologies/downloads/)
 * [Maven](https://maven.apache.org/)
 * [Selenium](https://www.seleniumhq.org/)
 * [Appium](https://appium.io/)
 * [SauceLabs](https://saucelabs.com/)
+* [Tesseract](https://tesseract-ocr.github.io/tessdoc/Home.html)
 
 Each test targets a subpage of [Elemental Selenium's](http://the-internet.herokuapp.com/) webpage.
 
@@ -15,6 +16,8 @@ Each test targets a subpage of [Elemental Selenium's](http://the-internet.heroku
 * Install Maven and set it in the $PATH variable (this might be done for you depending on the OS).
 * Install any Java IDE (such as IntelliJ IDEA).
 * Install Appium Desktop.
+* Install Firefox (so that you can test locally).
+* Install Tesseract.
 
 ### Installing
 

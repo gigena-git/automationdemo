@@ -9,17 +9,17 @@
   <test name="Run tests with chrome on macOS">
     <parameter name="runEnv" value="REMOTE"/>
     <parameter name="runDriver" value="chrome"/>
-    <parameter name="runVersion" value="74.0"/>
-    <parameter name="runOs" value="macOS 10.14"/>
+    <parameter name="runVersion" value="latest"/>
+    <parameter name="runOs" value="macOS 12"/>
     <classes>
       <class name="com.mgigena.automationdemo.tests.desktop.AaDesktopFactoryTest"/>
     </classes>
   </test>
-  <test name="Run tests with firefox on Windows 10">
+  <test name="Run tests with firefox on Windows 11">
     <parameter name="runEnv" value="REMOTE"/>
     <parameter name="runDriver" value="firefox"/>
-    <parameter name="runVersion" value="67.0"/>
-    <parameter name="runOs" value="Windows 10"/>
+    <parameter name="runVersion" value="latest"/>
+    <parameter name="runOs" value="Windows 11"/>
     <classes>
       <class name="com.mgigena.automationdemo.tests.desktop.AaDesktopFactoryTest"/>
     </classes>

@@ -13,8 +13,8 @@ public class BaseWebTest extends BaseTest {
   public void setUp(
       @Optional("LOCAL") String runEnv,
       @Optional("firefox") String runDriver,
-      @Optional("74.0") String runVersion,
-      @Optional("macOS 10.14") String runOs,
+      @Optional("latest") String runVersion,
+      @Optional("Windows 11") String runOs,
       Method testMethod) {
     setEnvironment(runEnv);
     setDriver(DriverFactory.getDriver(getEnvironment(), runDriver, runVersion, runOs, testMethod));

@@ -45,7 +45,7 @@ public final class CoreConfig {
   }
 
   public static String getRemoteURL() {
-    String url = "https://%s:%s@ondemand.saucelabs.com:443/wd/hub";
+    String url = "https://%s:%s@ondemand.us-west-1.saucelabs.com:443/wd/hub";
     return String.format(url, getSauceUserName(), getSauceAccessKey());
   }
 

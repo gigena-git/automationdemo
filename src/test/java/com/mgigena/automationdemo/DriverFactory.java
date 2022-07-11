@@ -6,13 +6,17 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.AbstractDriverOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -46,10 +50,20 @@ public final class DriverFactory {
     } else if ("REMOTE".equals(environment)) {
       LOGGER.info("Creating remote driver");
       URL url = CoreConfig.getRemoteServerUrl();
-      DesiredCapabilities capabilities = new DesiredCapabilities();
-      capabilities.setCapability(CapabilityType.BROWSER_NAME, runDriver);
-
-      driver = new RemoteWebDriver(url, capabilities);
+      AbstractDriverOptions browserOptions = null;
+      switch (runDriver) {
+        case "chrome":
+          browserOptions = new ChromeOptions();
+          break;
+        default:
+          browserOptions = new FirefoxOptions();
+      }
+      browserOptions.setPlatformName(runOs);
+      browserOptions.setBrowserVersion(runVersion);
+      Map<String, Object> sauceOptions = new HashMap<>();
+      sauceOptions.put("name", testMethod.getName());
+      browserOptions.setCapability("sauce:options", sauceOptions);
+      driver = new RemoteWebDriver(url, browserOptions);
     }
     return driver;
   }
