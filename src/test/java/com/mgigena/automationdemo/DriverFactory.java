@@ -2,6 +2,7 @@ package com.mgigena.automationdemo;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.lang.reflect.Method;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -78,7 +80,7 @@ public final class DriverFactory {
       Method testMethod) {
     URL url;
     AppiumDriver driver = null;
-    DesiredCapabilities capabilities;
+    MutableCapabilities capabilities = new MutableCapabilities();
     if ("LOCAL".equals(environment)) {
       url = CoreConfig.getLocalAppiumUrl();
       if ("Android".equals(platformName)) {
@@ -92,13 +94,18 @@ public final class DriverFactory {
       }
     } else if ("REMOTE".equals(environment)) {
       url = CoreConfig.getRemoteServerUrl();
+      capabilities.setCapability("platformName", platformName);
+      capabilities.setCapability("browserName", browserName);
+      capabilities.setCapability("appium:deviceName", deviceName);
+      capabilities.setCapability("appium:platformVersion", platformVersion);
+      MutableCapabilities sauceOptions = new MutableCapabilities();
+      sauceOptions.setCapability("appiumVersion", appiumVersion);
+      sauceOptions.setCapability("name", testMethod.getName());
+      capabilities.setCapability("sauce:options", sauceOptions);
       if ("Android".equals(platformName)) {
-        capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
-
         driver = new AndroidDriver(url, capabilities);
+      } else if ("iOS".equals(platformName)) {
+        driver = new IOSDriver(url, capabilities);
       }
     }
     return driver;
